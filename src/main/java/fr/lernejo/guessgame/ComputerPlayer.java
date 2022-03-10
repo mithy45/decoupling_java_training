@@ -8,7 +8,7 @@ public class ComputerPlayer implements Player{
 
     @Override
     public long askNextGuess(){
-        nb_guessed = (max - min) / 2;
+        nb_guessed = (max + min) / 2;
         return nb_guessed;
     }
 
