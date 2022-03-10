@@ -48,7 +48,7 @@ public class Simulation {
         }
         long fin = System.currentTimeMillis() - deb;
         Duration d = Duration.ofMillis(fin);
-        if (win)
+        if (!win)
         {
             logger.log("Bien joué... Vous avez trouvé !");
         }
