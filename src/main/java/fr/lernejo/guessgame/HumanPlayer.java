@@ -10,17 +10,15 @@ public class HumanPlayer implements Player{
     private Scanner scanner = new Scanner(System.in);
 
     public long askNextGuess() {
-        while (true) {
-            logger.log("Veuillez saisir un nombre deviné par le jeu !");
-            try {
-                return Long.parseLong(scanner.nextLine());
-            } catch (NumberFormatException e) {
-                logger.log("Ce n'est pas un nombre");
-            } catch (Exception e) {
-                logger.log(e.getMessage());
-                return -1;
-            }
+        logger.log("Veuillez saisir un nombre deviné par le jeu !");
+        try {
+            return Long.parseLong(scanner.nextLine());
+        } catch (NumberFormatException e) {
+            logger.log("Ce n'est pas un nombre");
+        } catch (Exception e) {
+            logger.log(e.getMessage());
         }
+        return -1;
     }
 
     public void respond(boolean lowerOrGreater) {
