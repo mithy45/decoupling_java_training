@@ -42,13 +42,9 @@ public class Simulation {
     }
 
     public void loopUntilPlayerSucceed(long iter) {
-        long i = 0;
+        long i = 1;
         long deb = System.currentTimeMillis();
-        boolean win;
-        while(!(win = nextRound()) && i != iter)
-        {
-            i++;
-        }
+        while(!nextRound() && i++ != iter);
         long fin = System.currentTimeMillis() - deb;
         logger.log(new SimpleDateFormat("mm:ss:SSS").format(new Date(fin)));
     }
