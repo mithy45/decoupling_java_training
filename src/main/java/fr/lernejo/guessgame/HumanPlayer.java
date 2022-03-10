@@ -13,8 +13,6 @@ public class HumanPlayer implements Player{
         logger.log("Veuillez saisir un nombre deviné par le jeu !");
         try {
             return Long.parseLong(scanner.nextLine());
-        } catch (NumberFormatException e) {
-            logger.log("Ce n'est pas un nombre");
         } catch (Exception e) {
             logger.log(e.getMessage());
         }
