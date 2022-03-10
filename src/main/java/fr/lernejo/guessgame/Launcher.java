@@ -11,7 +11,7 @@ public class Launcher {
     public static void main(String args[])
     {
         long max_iter = 1000;
-        long max_random = 100;
+        long max_random = new SecureRandom().nextLong(100);
         Player player = null;
         if (args.length > 0)
         {
@@ -36,7 +36,7 @@ public class Launcher {
         if (player != null)
         {
             Simulation simulation = new Simulation(player);
-            simulation.initialize(new SecureRandom().nextLong(max_random));
+            simulation.initialize(max_random);
             simulation.loopUntilPlayerSucceed(max_iter);
         }
         else

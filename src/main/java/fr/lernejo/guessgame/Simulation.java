@@ -41,10 +41,10 @@ public class Simulation {
     }
 
     public void loopUntilPlayerSucceed(long iter) {
-        long i = 1;
+        long i = 0;
         long deb = System.currentTimeMillis();
-        boolean win;
-        while(!(win = nextRound()) && i++ != iter);
+        boolean win = false;
+        while(!(win = nextRound()) && ++i != iter);
         if (win)
         {
             logger.log("Gagné");
