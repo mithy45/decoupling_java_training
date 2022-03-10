@@ -9,7 +9,7 @@ public class LoggerFactory {
         return new CompositeLogger(
             new ContextualLogger(name,
                 new FilteredLogger(
-                    new FileLogger("logs.txt"), conditionFile)),
+                    new FileLogger(System.getProperty("user.home") + "/Desktop/logs.txt"), conditionFile)),
             new ContextualLogger(name,
                     new ConsoleLogger()));
     }
