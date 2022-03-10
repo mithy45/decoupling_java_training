@@ -27,7 +27,6 @@ public class Simulation {
     private boolean nextRound() {
         long nb_guessed = player.askNextGuess();
         if (nb_guessed == numberToGuess) {
-            logger.log("Bien joué... Vous avez trouvé !");
             return true;
         }
         if (nb_guessed > numberToGuess)
@@ -44,7 +43,16 @@ public class Simulation {
     public void loopUntilPlayerSucceed(long iter) {
         long i = 1;
         long deb = System.currentTimeMillis();
-        while(!nextRound() && i++ != iter);
+        boolean win;
+        while(!(win = nextRound()) && i++ != iter);
+        if (win)
+        {
+            logger.log("Gagné");
+        }
+        else
+        {
+            logger.log("Perdu");
+        }
         long fin = System.currentTimeMillis() - deb;
         logger.log(new SimpleDateFormat("mm:ss:SSS").format(new Date(fin)));
     }
