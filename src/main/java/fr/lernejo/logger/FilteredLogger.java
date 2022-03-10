@@ -1,7 +1,5 @@
 package fr.lernejo.logger;
 
-import java.util.Arrays;
-import java.util.List;
 import java.util.function.Predicate;
 
 public class FilteredLogger implements Logger{
@@ -15,8 +13,7 @@ public class FilteredLogger implements Logger{
 
     @Override
     public void log(String message) {
-        List<String> list = Arrays.asList(message.split("\\s+"));
-        if (list.stream().filter(condition).count() != 0)
+        if (condition.test(message))
         {
             delegate.log(message);
         }
