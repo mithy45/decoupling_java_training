@@ -18,7 +18,7 @@ public class HumanPlayer implements Player{
                 logger.log("Ce n'est pas un nombre");
             } catch (Exception e) {
                 logger.log(e.getMessage());
-                scanner = new Scanner(System.in);
+                return -1;
             }
         }
     }
