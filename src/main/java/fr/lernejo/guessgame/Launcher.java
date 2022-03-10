@@ -6,6 +6,8 @@ import fr.lernejo.logger.LoggerFactory;
 import java.security.SecureRandom;
 
 public class Launcher {
+    private static final Logger logger = LoggerFactory.getLogger("launcher");
+
     public static void main(String args[])
     {
         long max_iter = 1000;
@@ -27,7 +29,7 @@ public class Launcher {
                 }
                 catch (Exception e)
                 {
-                    System.out.println(e.getMessage());
+                    logger.log(e.getMessage());
                 }
             }
         }
@@ -39,7 +41,6 @@ public class Launcher {
         }
         else
         {
-            Logger logger = LoggerFactory.getLogger("launcher");
             logger.log("Vous devez soit mettre -auto avec un nombre ou -interactive");
         }
     }

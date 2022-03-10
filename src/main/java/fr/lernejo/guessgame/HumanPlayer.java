@@ -7,7 +7,7 @@ import java.util.Scanner;
 
 public class HumanPlayer implements Player{
     private final Logger logger = LoggerFactory.getLogger("player");
-    private Scanner scanner = new Scanner(System.in);
+    private final Scanner scanner = new Scanner(System.in);
 
     public long askNextGuess() {
         logger.log("Veuillez saisir un nombre deviné par le jeu !");
