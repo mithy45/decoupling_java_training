@@ -3,8 +3,10 @@ package fr.lernejo.guessgame;
 import fr.lernejo.logger.Logger;
 import fr.lernejo.logger.LoggerFactory;
 
+import java.time.Duration;
 import java.time.LocalTime;
 import java.time.Period;
+import java.util.Date;
 
 public class Simulation {
 
@@ -42,13 +44,14 @@ public class Simulation {
 
     public void loopUntilPlayerSucceed(long iter) {
         long i = 0;
-        LocalTime deb = LocalTime.now();
+        long deb = System.currentTimeMillis();
         while(!nextRound() && i != iter)
         {
             i++;
         }
-        LocalTime fin = LocalTime.now();
-        logger.log((fin.getMinute() - deb.getMinute()) + ":" + (fin.getSecond() - deb.getSecond()) + "." + (fin.getNano() - deb.getNano()));
+        long fin = System.currentTimeMillis() - deb;
+        Duration d = Duration.ofMillis(fin);
+        logger.log(d.toMinutesPart() + ":" + d.toSecondsPart() + "." + d.toMillisPart());
 
     }
 }

@@ -1,7 +1,5 @@
 package fr.lernejo.guessgame;
 
-import java.security.SecureRandom;
-
 public class ComputerPlayer implements Player{
 
     private long nb_guessed;
@@ -10,7 +8,7 @@ public class ComputerPlayer implements Player{
 
     @Override
     public long askNextGuess(){
-        nb_guessed = (max + min) / 2;
+        nb_guessed = (max - min) / 2;
         return nb_guessed;
     }
 

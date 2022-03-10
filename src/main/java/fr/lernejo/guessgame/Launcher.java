@@ -1,5 +1,8 @@
 package fr.lernejo.guessgame;
 
+import fr.lernejo.logger.Logger;
+import fr.lernejo.logger.LoggerFactory;
+
 import java.security.SecureRandom;
 
 public class Launcher {
@@ -10,12 +13,12 @@ public class Launcher {
         Player player = null;
         if (args.length > 0)
         {
-            if (args[0] == "-interactive")
+            if (args[0].equals("-interactive"))
             {
-                player = new ComputerPlayer();
+                player = new HumanPlayer();
                 max_iter = Long.MAX_VALUE;
             }
-            else if (args[0] == "-auto")
+            else if (args[0].equals("-auto"))
             {
                 try
                 {
@@ -24,7 +27,7 @@ public class Launcher {
                 }
                 catch (Exception e)
                 {
-
+                    System.out.println(e.getMessage());
                 }
             }
         }
@@ -36,7 +39,8 @@ public class Launcher {
         }
         else
         {
-
+            Logger logger = LoggerFactory.getLogger("launcher");
+            logger.log("Vous devez soit mettre -auto avec un nombre ou -interactive");
         }
     }
 }

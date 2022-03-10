@@ -7,7 +7,7 @@ import java.util.Scanner;
 
 public class HumanPlayer implements Player{
     private final Logger logger = LoggerFactory.getLogger("player");
-    private final Scanner scanner = new Scanner(System.in);
+    private Scanner scanner = new Scanner(System.in);
 
     public long askNextGuess() {
         while (true) {
@@ -18,6 +18,7 @@ public class HumanPlayer implements Player{
                 logger.log("Ce n'est pas un nombre");
             } catch (Exception e) {
                 logger.log(e.getMessage());
+                scanner = new Scanner(System.in);
             }
         }
     }
