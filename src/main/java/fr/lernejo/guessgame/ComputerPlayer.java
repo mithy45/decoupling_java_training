@@ -14,7 +14,7 @@ public class ComputerPlayer implements Player{
 
     @Override
     public void respond(boolean lowerOrGreater) {
-        if (!lowerOrGreater) // Plus grand
+        if (!lowerOrGreater)
         {
             min = nb_guessed;
         }

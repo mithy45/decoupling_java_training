@@ -4,7 +4,6 @@ import fr.lernejo.logger.Logger;
 import fr.lernejo.logger.LoggerFactory;
 
 import java.text.SimpleDateFormat;
-import java.time.Duration;
 import java.util.Date;
 
 public class Simulation {
